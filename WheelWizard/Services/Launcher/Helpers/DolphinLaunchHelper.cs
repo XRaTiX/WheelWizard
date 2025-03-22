@@ -29,7 +29,7 @@ public static class DolphinLaunchHelper
             var dolphinLocation = (string)SettingsManager.DOLPHIN_LOCATION.Get();
             if (dolphinLocation.Contains("flatpak"))
             {
-s               tartInfo.FileName = "flatpak";
+                startInfo.FileName = "flatpak";
                 int runIndex = dolphinLocation.IndexOf("run");
                 string extractedRunCommand = dolphinLocation.Substring(runIndex).Trim();
                 startInfo.Arguments = $"{extractedRunCommand} {arguments}";
