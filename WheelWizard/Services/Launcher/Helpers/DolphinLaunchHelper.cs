@@ -29,8 +29,10 @@ public static class DolphinLaunchHelper
             var dolphinLocation = (string)SettingsManager.DOLPHIN_LOCATION.Get();
             if (dolphinLocation.Contains("flatpak"))
             {
-                startInfo.FileName = "flatpak";
-                startInfo.Arguments = $"run org.DolphinEmu.dolphin-emu {arguments}";
+s               tartInfo.FileName = "flatpak";
+                int runIndex = dolphinLocation.IndexOf("run");
+                string extractedRunCommand = dolphinLocation.Substring(runIndex).Trim();
+                startInfo.Arguments = $"{extractedRunCommand} {arguments}";
                 startInfo.UseShellExecute = false;
             }
             else if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
